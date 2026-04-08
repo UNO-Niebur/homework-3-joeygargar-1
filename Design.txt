@@ -1,0 +1,71 @@
+Board Game Design Document
+
+
+1. What my game looks like
+My game is a simple text-based board game with 30 spaces.
+There are multiple players .
+Some spaces contain events such as Treasure, Trap, or Heal.
+
+The board is displayed in the terminal, showing each space and what is on it.
+
+2. Rules of the game
+The game starts by reading data from a file called events.txt.
+The file stores:
+whose turn it is
+player positions
+event locations
+On a turn, the current player can move forward a number of spaces.
+If the player lands on a space with an event, a message is displayed.
+The turn can be switched to the next player.
+The game continues until the user chooses to quit.
+The game state is saved after each action.
+
+3. Functions used
+loadGameData(filename)
+Reads the file and loads turn, players, and events.
+
+saveGameData(filename, currentTurn, players, events)
+Saves the updated game state back to the file.
+
+displayBoard(players, events, boardSize)
+Displays each board space and what is on it.
+
+displayGame(currentTurn, players, events, boardSize)
+Displays the full game state including players, events, and board.
+
+movePlayer(currentTurn, players, events, boardSize)
+Moves the current player forward and updates their position.
+
+triggerEvent(playerName, position, events)
+Checks if a player lands on an event and displays a message.
+
+switchTurn(currentTurn, players)
+Cycles through all players to determine the next turn.
+
+main()
+Controls the flow of the game and user interaction.
+
+4. How data is stored
+The game data is stored in a text file called events.txt.
+
+Format example:
+Turn: Player1
+3: Player1
+7: Player2
+22: Player3
+12: Treasure
+18: Trap
+27: Heal
+
+"Turn:" indicates whose turn it is.
+Player lines store player positions.
+Other lines represent events at specific board spaces.
+
+5. Program goal
+The goal of this program is to demonstrate:
+file handling (reading and writing)
+game state representation
+user interaction
+use of functions to organize code
+
+The program is not meant to be a complete game, but a structured system that shows how a board game could be implemented.
